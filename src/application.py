@@ -10,14 +10,12 @@ application = Flask(__name__)
 api = Api(application)
 
 # setup the list of swear words
-wordlist = WordList()
 
 
 @api.route("/wordlist")                   # Create a URL route to this resource
 class WordListOperations(Resource):       # Create a RESTful resource
     def get(self):                        # Create GET endpoint
         return {'hello': 'world'}
-
 
 def main():
     application.debug = True
