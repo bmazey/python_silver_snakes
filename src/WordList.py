@@ -10,8 +10,10 @@ class WordList:
     def swear_word_count(self, txt):
         # count the times of swear words occurring in the text
         count = 0
+
         for word in self.list:
-            if re.search(word, txt):
+            if re.search(word.casefold() + ' ', txt.casefold()) \
+                    or re.search(' ' + word.casefold(), txt.casefold()):
                 count += 1
 
         return count
@@ -23,4 +25,4 @@ class WordList:
             if addition.casefold() == word.casefold():
                 print("addition fails")
             else:
-                self.list.append(addition)
+                self.list.append(addition.casefold())
