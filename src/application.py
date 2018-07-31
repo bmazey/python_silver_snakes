@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_restplus import Resource, Api
+import requests
 
 
 # welcome to flask: http://flask.pocoo.org/
@@ -12,12 +13,15 @@ api = Api(application)
 @api.route("/hello")                   # Create a URL route to this resource
 class HelloWorld(Resource):            # Create a RESTful resource
     def get(self):                     # Create GET endpoint
-        return {'hello': 'world'}
+        self.FLASK_APP = application.py
 
 
 def main():
     application.debug = True
     application.run()
+
+def get_app():
+    return application
 
 
 if __name__ == "__main__":
