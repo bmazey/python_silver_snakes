@@ -1,10 +1,21 @@
 import re
+import json
 
 
 class WordList:
 
     def __init__(self):
-        self.list = ['arse', 'ass', 'asshole']
+        self.list = []
+        # open swear_words.json to load swear word data base
+        '''
+        with open('swear_words') as data:
+            swearwords = json.load(data)
+            for i in swearwords['RECORDS']:
+                self.list.append(i['word'])
+        '''
+        json_data = open('swear_words.json').read()
+        data = json.loads(json_data)
+        print("swear_words.json loaded")
 
     # returns how many times swear words occur in the text
     def swear_word_count(self, txt):

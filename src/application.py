@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_restplus import Resource, Api
+from src.WordList import *
 
 
 # welcome to flask: http://flask.pocoo.org/
@@ -8,10 +9,13 @@ from flask_restplus import Resource, Api
 application = Flask(__name__)
 api = Api(application)
 
+# setup the list of swear words
+wordlist = WordList()
 
-@api.route("/hello")                   # Create a URL route to this resource
-class HelloWorld(Resource):            # Create a RESTful resource
-    def get(self):                     # Create GET endpoint
+
+@api.route("/wordlist")                   # Create a URL route to this resource
+class WordListOperations(Resource):       # Create a RESTful resource
+    def get(self):                        # Create GET endpoint
         return {'hello': 'world'}
 
 
