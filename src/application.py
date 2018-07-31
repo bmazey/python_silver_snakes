@@ -8,7 +8,7 @@ from src.WordList import *
 # http://michal.karzynski.pl/blog/2016/06/19/building-beautiful-restful-apis-using-flask-swagger-ui-flask-restplus/
 application = Flask(__name__)
 api = Api(application)
-
+word_list = WordList()
 # setup the list of swear words
 
 
