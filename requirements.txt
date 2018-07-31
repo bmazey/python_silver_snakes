@@ -6,3 +6,4 @@ google-api-core
 grpcio
 googleapis-common-protos
 protobuf
+flask_sqlalchemy
