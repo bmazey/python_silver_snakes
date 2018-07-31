@@ -20,20 +20,18 @@ db = SQLAlchemy(application)
 # store audio file in database
 class Audio(db.Model):
     __tablename__ = 'audio_filename'
-    id = db.Column(db.Integer, primary_key=True, description='random generated ID')
-    filename = db.Column(db.String(64), required=True, description='filename of audio')
-    data = db.Column(db.LargeBinary, required=True, description='audio')
+    id = db.Column(db.Integer, primary_key=True)
+    filename = db.Column(db.String(64))
+    data = db.Column(db.LargeBinary)
 
 
-@api.route("/text/<path:audiopath>")
+@api.route("/hello")
 class HelloWorld(Resource):
     def get(self):
-        pass
+        return {'hello', 'world'}
 
     def post(self):
         pass
-
-
 
 
 def main():

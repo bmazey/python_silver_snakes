@@ -1,12 +1,13 @@
 import unittest
-from src.application import get_app
+import os
+import src.application as speech
 import flask
 
 
 class TestRequestsPage(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.app = get_app()
+        cls.app = speech.get_app()
         cls.client = cls.app.test_client()
 
     def test_response(self):
@@ -15,5 +16,10 @@ class TestRequestsPage(unittest.TestCase):
         self.assertEqual({'hello': 'world'}, r.get_json(), msg="Unexpected response.")
 
     def test_sqlalchemy_audio(self):
-        pass
+        file = 'sample_ibm_conversion_computer.mp3'
+        with open(os.path.join(os.path.dirname(__file__), "/ibm/resources/"+file), 'rb') as audio_file:
+            aud = speech.Audio(filename=file, data=audio_file)
+            speech.db.session.add(aud)
+            speech.db.session.commit()
+
 
