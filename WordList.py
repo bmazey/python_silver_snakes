@@ -6,7 +6,7 @@ class WordList:
     def __init__(self):
         self.list = []
         # open swear_words.json to load swear word data base
-        with open('/Users/s/PycharmProjects/python_silver_snakes/src/swearwords.json') as data:
+        with open('swearwords.json') as data:
             swearwords = json.load(data)
             for i in swearwords['RECORDS']:
                 if i['language'] == 'en':
