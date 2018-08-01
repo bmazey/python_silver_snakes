@@ -7,3 +7,4 @@ grpcio
 googleapis-common-protos
 protobuf
 flask_sqlalchemy
+scipy
