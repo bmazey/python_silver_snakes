@@ -14,3 +14,4 @@ artifacts:
     - WordList.py
     - Text.py
     - requirements.txt
+    - swearwords.json
