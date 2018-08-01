@@ -11,4 +11,6 @@ phases:
 artifacts:
   files:
     - application.py
+    - WordList.py
+    - Text.py
     - requirements.txt
