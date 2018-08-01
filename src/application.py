@@ -1,9 +1,10 @@
-import uuid
 from flask import Flask, request, flash, redirect, url_for
-from glob import glob
-import os
 from flask_restplus import Resource, Api
-from src.speech import Speech
+from src.WordList import *
+from json import *
+import uuid
+from src.Text import *
+import os
 from flask_restplus import Resource, Api, fields
 from flask_sqlalchemy import SQLAlchemy
 
@@ -91,6 +92,33 @@ def configure_db():
 
 def main():
     configure_db()
+word_list = WordList()
+# setup the list of swear words
+
+
+@api.route("/word_list")
+class GetWordList(Resource):
+    def get(self):
+        return word_list.generate_swear_word_dict()
+
+
+@api.route("/word_list/<string:word>")
+class WordListOperations(Resource):
+    def get(self, word):
+        return word_list.generate_swear_wod_dict()
+
+    def post(self, word):
+        word_list.add(word)
+        return word_list.generate_swear_word_dict()
+
+
+@api.route("/text_analysis/<string:txt>")
+class WordListOperations(Resource):
+    def post(self, txt):
+        text = Text(txt)
+        return text.generate_analysis()
+
+def main():
     application.debug = True
     application.run()
 
@@ -104,4 +132,3 @@ def get_db():
 
 if __name__ == "__main__":
     main()
-
