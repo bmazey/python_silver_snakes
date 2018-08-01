@@ -1,11 +1,10 @@
-import re
-from src.WordList import *
+from WordList import WordList
 
 
 class Text:
 
     def __init__(self, txt):
-         self.txt = txt
+        self.txt = txt
 
     def generate_analysis(self):
         word_list = WordList()

@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restplus import Resource, Api
-from src.WordList import WordList
-from src.Text import Text
+from WordList import WordList
+from Text import Text
 
 
 # welcome to flask: http://flask.pocoo.org/

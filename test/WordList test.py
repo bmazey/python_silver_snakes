@@ -1,4 +1,4 @@
-from src.WordList import *
+from WordList import *
 import unittest
 
 

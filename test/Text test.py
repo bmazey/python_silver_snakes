@@ -1,4 +1,4 @@
-from src.Text import *
+from Text import *
 import unittest
 
 
