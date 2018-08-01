@@ -6,7 +6,7 @@ class WordList:
     def __init__(self):
         self.list = []
         # open swear_words.json to load swear word data base
-        with open('swearwords.json') as data:
+        with open('swearwords.json', encoding='utf-8') as data:
             swearwords = json.load(data)
             for i in swearwords['RECORDS']:
                 if i['language'] == 'en':
