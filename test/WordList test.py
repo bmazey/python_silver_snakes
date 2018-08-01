@@ -9,6 +9,11 @@ class TestClass(unittest.TestCase):
         wordlist.add('ha')
         self.assertEqual(wordlist.list[-1], 'ha')
 
+    def test_generate_swear_word_dict(self):
+        word_list = WordList()
+        print(word_list)
+        # test by yourself :)
+
 
 if __name__ == '__main__':
     unittest.main()

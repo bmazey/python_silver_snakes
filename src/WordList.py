@@ -27,3 +27,15 @@ class WordList:
             self.list.append(addition)
         else:
             print("Already exist")
+
+    # return a dictionary of swear words sorted by their first letters
+    # !!! not in alphabetical order !!!
+    def generate_swear_word_dict(self):
+        result = {}
+        for word in self.list:
+            if not word[0].casefold() in result.keys():
+                result[word[0].casefold()] = [word]
+            else:
+                result[word[0].casefold()].append(word)
+
+        return result
