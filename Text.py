@@ -6,8 +6,7 @@ class Text:
     def __init__(self, txt):
         self.txt = txt
 
-    def generate_analysis(self):
-        word_list = WordList()
+    def generate_analysis(self, word_list):
         arr = self.txt.split()
         result = {}
 
