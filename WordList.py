@@ -39,3 +39,9 @@ class WordList:
                 result[word[0].casefold()].append(word)
 
         return result
+
+    def delete_word(self, word):
+        try:
+            self.list.remove(word)
+        except:
+            pass
