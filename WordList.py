@@ -24,7 +24,7 @@ class WordList:
                 break
 
         if still_add:
-            self.list.append(addition)
+            self.list.append(addition.casefold())
         else:
             print("Already exist")
 
