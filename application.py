@@ -21,9 +21,6 @@ class GetWordList(Resource):
 
 @api.route("/word_list/<string:word>")
 class WordListOperations(Resource):
-    def get(self, word):
-        return word_list.generate_swear_wod_dict()
-
     def post(self, word):
         word_list.add(word)
         return word_list.generate_swear_word_dict()
@@ -33,7 +30,7 @@ class WordListOperations(Resource):
 class WordListOperations(Resource):
     def post(self, txt):
         text = Text(txt)
-        return text.generate_analysis()
+        return text.generate_analysis(word_list)
 
 def main():
     application.debug = True
