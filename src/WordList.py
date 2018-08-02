@@ -6,27 +6,18 @@ class WordList:
     def __init__(self):
         self.list = []
         # open swear_words.json to load swear word data base
-        with open('/Users/s/PycharmProjects/python_silver_snakes/src/swearwords.json') as data:
-            swearwords = json.load(data)
-            for i in swearwords['RECORDS']:
-                if i['language'] == 'en':
-                    self.list.append(i['word'])
+        with open('swearwords.json') as data:
+            # filters language and creates list of words
+            self.list = [v['word'] for v in json.load(data)['RECORDS'] if v['language'] == 'en']
 
-        print("swearwords.json loaded!")
 
     # add a swear word to the word list
     def add(self, addition):
         # test if the list already has the word
-        still_add = True
-        for i in self.list:
-            if i == addition:
-                still_add = False
-                break
-
-        if still_add:
-            self.list.append(addition)
-        else:
+        if addition in self.list:
             print("Already exist")
+        else:
+            self.list.append(addition)
 
     # return a dictionary of swear words sorted by their first letters
     # !!! not in alphabetical order !!!
@@ -37,5 +28,9 @@ class WordList:
                 result[word[0].casefold()] = [word]
             else:
                 result[word[0].casefold()].append(word)
-
         return result
+
+
+if __name__ == '__main__':
+    w = WordList()
+    print(w.list)
