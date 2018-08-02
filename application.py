@@ -25,6 +25,10 @@ class WordListOperations(Resource):
         word_list.add(word)
         return word_list.generate_swear_word_dict()
 
+    def delete(self, word):
+        word_list.delete_word(word)
+        return word_list.generate_swear_word_dict()
+
 
 @api.route("/text_analysis/<string:txt>")
 class WordListOperations(Resource):
